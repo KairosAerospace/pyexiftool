@@ -16,7 +16,7 @@
 
 from setuptools import setup
 
-setup(name="PyExifTool",
+setup(name="exiftool",
       version="0.1",
       description="Python wrapper for exiftool",
       license="GPLv3+",
