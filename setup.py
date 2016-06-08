@@ -16,13 +16,17 @@
 
 from setuptools import setup
 
+MAJOR_VERSION = 1
+MINOR_VERSION = 0
+BUILD_NUMBER = os.environ.get('CIRCLE_BUILD_NUM', 'DEVSNAPSHOT')
+
 setup(name="exiftool",
-      version="0.1",
-      description="Python wrapper for exiftool",
+      version="{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, BUILD_NUMBER),
+      description="Python wrapper for exiftool (Kairos-packaged)",
       license="GPLv3+",
       author="Sven Marnach",
       author_email="sven@marnach.net",
-      url="http://github.com/smarnach/pyexiftool",
+      url="https://github.com/KairosAerospace/pyexiftool",
       classifiers=[
           "Development Status :: 3 - Alpha",
           "Intended Audience :: Developers",
