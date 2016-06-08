@@ -1,0 +1,24 @@
+machine:
+  pre:
+    - wget https://s3.amazonaws.com/circle-downloads/circle-pyenv-python-3.5.1_1.0_amd64.deb
+    - sudo dpkg -i circle-pyenv-python-3.5.1_1.0_amd64.deb
+  environment:
+  python:
+   version: 3.5.1
+dependencies:
+  pre:
+    - pip install -q --upgrade pip
+    - pip install -q twine wheel 
+test:
+   override:
+     - python setup.py nosetests
+   post:
+     - cp nosetests.xml $CIRCLE_TEST_REPORTS
+deployment:
+  production:
+    branch: master
+    commands:
+      - python setup.py sdist bdist_wheel
+      - twine upload -u $KAIROS_ARTIFACTORY_PUBLISH_USER
+        -p $KAIROS_ARTIFACTORY_PUBLISH_API_KEY
+        -r artifactory-python3 --config-file ./.pypirc ./dist/*

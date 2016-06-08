@@ -14,7 +14,7 @@
 #
 # See COPYING.GPL or COPYING.BSD for more details.
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(name="PyExifTool",
       version="0.1",
@@ -31,4 +31,6 @@ setup(name="PyExifTool",
           "Programming Language :: Python :: 2.7",
           "Programming Language :: Python :: 3",
           "Topic :: Multimedia"],
-      py_modules=["exiftool"])
+      py_modules=["exiftool"],
+      setup_requires=["nose>=1.3.7"])
+
