@@ -15,6 +15,7 @@
 # See COPYING.GPL or COPYING.BSD for more details.
 
 from setuptools import setup
+import os
 
 MAJOR_VERSION = 1
 MINOR_VERSION = 0
